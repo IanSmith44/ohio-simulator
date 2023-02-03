@@ -12,7 +12,7 @@ public class playerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,5 +26,9 @@ public class playerMovement : MonoBehaviour
     {
         rb.AddForce(movementx * moveSpeedx);
         rb.AddForce(movementy * moveSpeedy);
+        if (rb.velocity.magnitude < 0.2f)
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 }
