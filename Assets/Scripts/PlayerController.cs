@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterController))]
+//[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    public Rigidbody rb;
+    public Animator animator;
     public enum playerState
     {
         idle,
@@ -25,8 +27,12 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementInput = Vector2.zero;
     private bool jumped = false;
     private bool sprintin = false;
+    private SpriteRenderer sr;
+
     private void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
+        
         controller = gameObject.GetComponent<CharacterController>();
     }
 
@@ -53,29 +59,30 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.x == 0 && playerVelocity.y == 0)
+        if (movementInput.x == 0 && groundedPlayer)
         {
             State = playerState.idle;
+            animator.SetBool("Run", false);
         }
         else if (!groundedPlayer && !sprintin)
         {
             State = playerState.jumping;
+            animator.SetBool("Run", true);
         }
         else if (!groundedPlayer && sprintin)
         {
             State = playerState.sprintJumping;
-        }
-        else if (movementInput.x == 0 && groundedPlayer)
-        {
-            State = playerState.idle;
+            animator.SetBool("Run", true);
         }
         else if (movementInput.x != 0 && groundedPlayer && !sprintin)
         {
             State = playerState.walking;
+            animator.SetBool("Run", true);
         }
         else if (movementInput.x != 0 && groundedPlayer && sprintin)
         {
             State = playerState.running;
+            animator.SetBool("Run", true);
         }
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -85,19 +92,29 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 move = new Vector2(movementInput.x, 0);
             controller.Move(move * Time.deltaTime * playerSpeed * 4);
+            //rb.AddForce(move * Time.deltaTime * playerSpeed * 4);
         }
         else
         {
             Vector3 move = new Vector2(movementInput.x, 0);
             controller.Move(move * Time.deltaTime * playerSpeed * 2);
+            //rb.AddForce(move * Time.deltaTime * playerSpeed *2);
         }
         // Changes the height position of the player..
         if (jumped && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
-
+        if (movementInput.x < 0)
+        {
+            sr.flipX = false;
+        }
+        else if (movementInput.x > 0)
+        {
+            sr.flipX = true;
+        }
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+        //rb.AddForce(playerVelocity * Time.deltaTime);
     }
 }
