@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 9117366869679611385}
   - component: {fileID: 9117366869679611384}
   - component: {fileID: 9117366869679610885}
-  - component: {fileID: 9117366869679610883}
   - component: {fileID: 9117366869679610882}
   - component: {fileID: -4590728920806584199}
   - component: {fileID: 96486197505375838}
+  - component: {fileID: 2145463945503253550}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Rigidbody Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9117366869679610883}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
     m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/a,/Keyboard/s,/Keyboard/d,/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9117366869679610883}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth,/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9117366869679610883}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnSprint
         m_Mode: 0
@@ -184,28 +184,10 @@ MonoBehaviour:
     m_ActionId: 0dfed8b7-9ae9-4520-bfe8-b8f037633156
     m_ActionName: Player/Sprint[/XInputControllerWindows1/leftTrigger,/XInputControllerWindows2/leftTrigger,/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Controller
+  m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &9117366869679610883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9117366869679611387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e4ef88473a8a1479209ffec3d8516a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: -4590728920806584199}
-  animator: {fileID: 9117366869679611384}
-  State: 0
-  playerSpeed: 2
-  jumpHeight: 1
-  gravityValue: -9.81
 --- !u!65 &9117366869679610882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -253,3 +235,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: -0.1, z: 0}
+--- !u!114 &2145463945503253550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117366869679611387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ca49172c6fcead46bdca749953d194b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: -4590728920806584199}
+  animator: {fileID: 9117366869679611384}
+  State: 0
+  playerSpeed: 2
+  jumpHeight: 1
+  gravityValue: -9.81

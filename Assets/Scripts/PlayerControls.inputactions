@@ -101,6 +101,61 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "2D Vector",
+                    "id": "621cab58-6fd3-45d6-82d6-27d207fc98cf",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "3033a25b-df07-44fc-a3ad-678d211d6fb5",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "AltKeyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "c91e62a3-01fd-4293-9e41-306e81bb414b",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "AltKeyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "369c3479-d29b-410d-94e8-faf61d8e8894",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "AltKeyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "01d764fd-0d4c-48a0-90b8-3f675330f4a8",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "AltKeyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "89bcb5e8-dbf3-47e9-b6ce-9fb83a75bea5",
                     "path": "<Gamepad>/buttonSouth",
@@ -124,6 +179,17 @@
                 },
                 {
                     "name": "",
+                    "id": "3a1d9214-1950-4ead-bff2-2c460aca5f46",
+                    "path": "<Keyboard>/slash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "AltKeyboard",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "bc3f65fb-5985-49b8-bc77-2bcdd0d75164",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
@@ -140,6 +206,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "65e79878-8a8a-4977-a225-508e9aa23963",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "AltKeyboard",
                     "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -169,6 +246,11 @@
                     "isOR": false
                 }
             ]
+        },
+        {
+            "name": "AltKeyboard",
+            "bindingGroup": "AltKeyboard",
+            "devices": []
         }
     ]
 }

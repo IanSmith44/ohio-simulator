@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 //[RequireComponent(typeof(CharacterController))]
-public class PlayerController : MonoBehaviour
+public class rbPlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     public Animator animator;
