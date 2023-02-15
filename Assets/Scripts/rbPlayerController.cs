@@ -3,8 +3,11 @@ using UnityEngine.InputSystem;
 
 public class rbPlayerController : MonoBehaviour
 {
-    public Rigidbody rb;
+
+    public Rigidbody2D rb;
+
     public Animator animator;
+
     public enum PlayerState
     {
         Idle,
@@ -16,7 +19,7 @@ public class rbPlayerController : MonoBehaviour
     public PlayerState State;
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
-    private bool grounded;
+    [SerializeField] private bool grounded;
     private Vector2 movementInput = Vector2.zero;
     private bool jumped = false;
     private bool sprintin = false;
@@ -35,7 +38,6 @@ public class rbPlayerController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         jumped = context.action.triggered;
-        grounded = false;
     }
 
     public void OnSprint(InputAction.CallbackContext context)
@@ -73,16 +75,22 @@ public class rbPlayerController : MonoBehaviour
         Vector3 move = new Vector2(movementInput.x, 0);
         float speedMultiplier = sprintin ? 4 : 2;
         rb.AddForce(move * Time.deltaTime * playerSpeed * speedMultiplier);
-        grounded = true;
         if (jumped && grounded)
         {
-            rb.AddForce(Vector3.up * jumpHeight);
+            rb.AddForce(Vector3.up * jumpHeight, ForceMode2D.Impulse);
             grounded = false;
         }
         sr.flipX = movementInput.x < 0 ? false : (movementInput.x > 0 ? true : sr.flipX);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void FixedUpdate()
+    {
+        if (movementInput == Vector2.zero)
+        {
+            rb.velocity = new Vector2(rb.velocity.x / 1.1f, rb.velocity.y);
+        }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
