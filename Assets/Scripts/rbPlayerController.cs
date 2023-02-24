@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class rbPlayerController : MonoBehaviour
 {
     [SerializeField] private float camDistance = 7.5f;
-[SerializeField] private Camera cam;
+    [SerializeField] private Camera cam;
     public Rigidbody2D rb;
 
     public Animator animator;
