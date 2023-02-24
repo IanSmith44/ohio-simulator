@@ -106,5 +106,9 @@ public class rbPlayerController : MonoBehaviour
         {
             grounded = true;
         }
+        if (collision.gameObject.tag == "Die")
+        {
+            Destroy(gameObject);
+        }
     }
 }
