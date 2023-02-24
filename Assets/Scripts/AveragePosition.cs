@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AveragePosition : MonoBehaviour
 {
-    public string targetTag; // The tag of the GameObjects we want to calculate the average position for
+    [SerializeField] private string targetTag; // The tag of the GameObjects we want to calculate the average position for
 
     private void Start()
     {

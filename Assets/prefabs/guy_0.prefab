@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4311561058577819087}
   - component: {fileID: 548011197965435557}
   - component: {fileID: 1262876566834031770}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: guy_0
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -199,6 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc9d778fd0e91048aa4f8d641b68d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camDistance: 8.35
+  cam: {fileID: 0}
   rb: {fileID: 1262876566834031770}
   animator: {fileID: 4311561058577819080}
   State: 0
