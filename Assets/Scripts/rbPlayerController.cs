@@ -110,5 +110,10 @@ public class rbPlayerController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Finish")
+        {
+            Destroy(gameObject);
+            Debug.Log("FINISH!");
+        }
     }
 }
