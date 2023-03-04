@@ -11,9 +11,12 @@ public class AveragePosition : MonoBehaviour
     }
     private void Update()
     {
+        GameObject[] targets = null;
         // Find all GameObjects with the specified tag
-        GameObject[] targets = GameObject.FindGameObjectsWithTag(targetTag);
+        targets = GameObject.FindGameObjectsWithTag(targetTag);
 
+        if (targets != null && targets.Length > 0)
+        {
         // Calculate the average position of the GameObjects
         Vector3 averagePosition = Vector3.zero;
         foreach (GameObject target in targets)
@@ -22,8 +25,10 @@ public class AveragePosition : MonoBehaviour
         }
         averagePosition /= targets.Length;
 
+
         // Print the average position to the console
-        Debug.Log("The average position of all " + targetTag + " is " + averagePosition);
+        //Debug.Log("The average position of all " + targetTag + " is " + averagePosition);
         transform.position = averagePosition;
+        }
     }
 }

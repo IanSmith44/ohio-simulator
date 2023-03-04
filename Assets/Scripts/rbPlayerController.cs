@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class rbPlayerController : MonoBehaviour
 {
+    [SerializeField] private Transform enemy;
     [SerializeField] private float camDistance = 7.5f;
     [SerializeField] private Camera cam;
     public Rigidbody2D rb;
@@ -28,6 +29,7 @@ public class rbPlayerController : MonoBehaviour
 
     private void Start()
     {
+        enemy = GameObject.Find("Fire").transform;
         cam = FindObjectOfType<Camera>();;
         sr = GetComponent<SpriteRenderer>();
     }
@@ -49,6 +51,10 @@ public class rbPlayerController : MonoBehaviour
 
     void Update()
     {
+        if (transform.position.x < enemy.position.x)
+        {
+            Destroy(gameObject);
+        }
         if (cam.transform.position.x - transform.position.x > camDistance)
         {
             transform.position = new Vector3(cam.transform.position.x - camDistance + 0.05f, transform.position.y, transform.position.z);
@@ -87,7 +93,8 @@ public class rbPlayerController : MonoBehaviour
         rb.AddForce(move * Time.deltaTime * playerSpeed * speedMultiplier);
         if (jumped && grounded)
         {
-            rb.AddForce(Vector3.up * jumpHeight, ForceMode2D.Impulse);
+            rb.velocity = new Vector2(rb.velocity.x,jumpHeight);
+            //rb.AddForce(Vector3.up * jumpHeight, ForceMode2D.Impulse);
             grounded = false;
         }
         sr.flipX = movementInput.x < 0 ? false : (movementInput.x > 0 ? true : sr.flipX);
@@ -114,6 +121,10 @@ public class rbPlayerController : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("FINISH!");
+        }
+        if (collision.gameObject.tag == "Jump Pad")
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 20);
         }
     }
 }

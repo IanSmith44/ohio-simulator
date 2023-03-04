@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4311561058577819083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.27, y: -1.3027861, z: 0}
-  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -205,7 +205,7 @@ MonoBehaviour:
   animator: {fileID: 4311561058577819080}
   State: 0
   playerSpeed: 250
-  jumpHeight: 5
+  jumpHeight: 11
   grounded: 0
 --- !u!60 &548011197965435557
 PolygonCollider2D:
@@ -255,9 +255,9 @@ Rigidbody2D:
   m_Mass: 0.5
   m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.75
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4

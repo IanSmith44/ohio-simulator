@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Die
+  - Jump Pad
   layers:
   - Default
   - TransparentFX
@@ -16,10 +17,10 @@ TagManager:
   - Enemy
   - Player
   - Boundary
-  - 
-  - 
-  - 
-  - 
+  - Finish
+  - noCollide
+  - JumpPad
+  - tunnelExit
   - 
   - 
   - 
